@@ -24,7 +24,7 @@
 
         <dependency>
             <groupId>com.yaogo</groupId>
-            <artifactId>yaoger-model</artifactId>
+            <artifactId>yaogoer-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

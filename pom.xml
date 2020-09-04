@@ -4,10 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>yaoger-model</module>
+        <module>yaogoer-model</module>
         <module>yaogoer-services</module>
         <module>yaogoer-app</module>
         <module>yaogoer-rest</module>
+        <module>yaogoer-dal</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

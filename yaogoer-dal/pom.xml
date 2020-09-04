@@ -7,16 +7,21 @@
         <groupId>com.yaogo</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
 
-    <modelVersion>4.0.0</modelVersion>
+    <artifactId>yaogoer-dal</artifactId>
 
-    <artifactId>yaoger-model</artifactId>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>com.yaogo</groupId>
+            <artifactId>yaogoer-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
