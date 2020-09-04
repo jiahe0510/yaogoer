@@ -1,13 +1,20 @@
 package com.yaogo.model.pojo;
 
+
 public class User {
 
     private Long id;
 
+    private String userName;
+
+    private String userPassword;
+
     public User() {}
 
-    public User(Long id) {
+    public User(Long id, String userName, String userPassword) {
         this.id = id;
+        this.userName = userName;
+        this.userPassword = userPassword;
     }
 
     public Long getId() {
@@ -18,10 +25,20 @@ public class User {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                '}';
+    public String getUserName() {
+        return userName;
     }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
 }
