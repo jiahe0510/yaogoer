@@ -22,6 +22,11 @@
             <artifactId>yaogoer-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.yaogo</groupId>
+            <artifactId>yaogoer-dal</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 

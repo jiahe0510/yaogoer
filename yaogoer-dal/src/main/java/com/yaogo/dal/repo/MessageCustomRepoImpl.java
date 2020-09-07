@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.Optional;
 
-public class MessageRepoCustomRepoImpl implements MessageRepoCustomRepo {
+public class MessageCustomRepoImpl implements MessageCustomRepo {
 
     @PersistenceContext
     private EntityManager entityManager;

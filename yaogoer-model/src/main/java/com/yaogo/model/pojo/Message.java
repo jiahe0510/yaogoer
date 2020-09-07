@@ -1,13 +1,29 @@
 package com.yaogo.model.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Entity
+@Table(name="message")
 public class Message {
 
+    @Id
+    @Column(name = "msg_id")
     private Long msgId;
+
+    @Column(name = "msg_parentid")
     private Long msgParentId;
+
+    @Column(name = "user_id")
     private Long userId;
+
+    @Column(name = "msg_date")
     private Date msgDate;
+
+    @Column(name = "msg_data")
     private String msgData;
 
     public Message() {

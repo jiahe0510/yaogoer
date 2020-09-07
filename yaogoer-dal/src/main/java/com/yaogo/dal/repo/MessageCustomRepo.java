@@ -4,7 +4,7 @@ import com.yaogo.model.pojo.Message;
 
 import java.util.Optional;
 
-public interface MessageRepoCustomRepo {
+public interface MessageCustomRepo {
 
     Optional<Message> findCommentMsgWithMostComments(Long msgId);
 

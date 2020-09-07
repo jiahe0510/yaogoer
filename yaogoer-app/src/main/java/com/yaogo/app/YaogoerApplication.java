@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.yaogo")
+@ComponentScan(basePackages = "com.yaogo")
 public class YaogoerApplication {
 
     public static void main(String[] args) {
