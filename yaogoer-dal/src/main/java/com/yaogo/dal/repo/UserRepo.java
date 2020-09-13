@@ -1,6 +1,6 @@
 package com.yaogo.dal.repo;
 
-import com.yaogo.model.pojo.User;
+import com.yaogo.model.jpa.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

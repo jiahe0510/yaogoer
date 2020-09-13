@@ -1,4 +1,4 @@
-package com.yaogo.model.pojo;
+package com.yaogo.model.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "user")
 public class User {
 
     @Id

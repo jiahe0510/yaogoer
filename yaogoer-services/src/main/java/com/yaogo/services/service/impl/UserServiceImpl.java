@@ -1,7 +1,7 @@
 package com.yaogo.services.service.impl;
 
 import com.yaogo.dal.repo.UserRepo;
-import com.yaogo.model.pojo.User;
+import com.yaogo.model.jpa.User;
 import com.yaogo.services.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

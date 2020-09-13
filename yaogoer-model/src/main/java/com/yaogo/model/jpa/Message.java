@@ -1,13 +1,10 @@
-package com.yaogo.model.pojo;
+package com.yaogo.model.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="message")
+@Table(name = "message")
 public class Message {
 
     @Id
