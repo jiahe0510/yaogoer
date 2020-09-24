@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path={"/", ""})
 public class UserController {
@@ -23,5 +25,12 @@ public class UserController {
         User user = userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping(path="/api/v1/user/")
+    public ResponseEntity<List<User>> getUsers() {
+        return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
+    }
+
+    
 
 }
