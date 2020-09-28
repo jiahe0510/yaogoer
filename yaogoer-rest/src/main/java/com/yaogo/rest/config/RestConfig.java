@@ -1,7 +1,7 @@
 package com.yaogo.rest.config;
 
 
-import com.yaogo.services.service.config.ServiceConfig;
+import com.yaogo.services.config.ServiceConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

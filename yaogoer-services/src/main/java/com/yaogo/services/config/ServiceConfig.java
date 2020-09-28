@@ -1,4 +1,4 @@
-package com.yaogo.services.service.config;
+package com.yaogo.services.config;
 
 
 import com.yaogo.dal.repo.config.DalConfig;

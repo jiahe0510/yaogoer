@@ -9,10 +9,10 @@ public class Message {
 
     @Id
     @Column(name = "msg_id")
-    private Long msgId;
+    private String msgId;
 
     @Column(name = "msg_parentid")
-    private Long msgParentId;
+    private String msgParentId;
 
     @Column(name = "user_id")
     private Long userId;
@@ -26,19 +26,19 @@ public class Message {
     public Message() {
     }
 
-    public Long getMsgId() {
+    public String getMsgId() {
         return msgId;
     }
 
-    public void setMsgId(Long msgId) {
+    public void setMsgId(String msgId) {
         this.msgId = msgId;
     }
 
-    public Long getMsgParentId() {
+    public String getMsgParentId() {
         return msgParentId;
     }
 
-    public void setMsgParentId(Long msgParentId) {
+    public void setMsgParentId(String msgParentId) {
         this.msgParentId = msgParentId;
     }
 
