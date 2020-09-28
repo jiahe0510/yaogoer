@@ -31,9 +31,13 @@ public class UserController {
     }
 
     @PostMapping(path = "/api/v1/user/")
-    public ResponseEntity<User> addUser(@RequestParam("name") String name, @RequestParam("password") String password){
-        User user = userService.addUser(new User(name, password));
-        System.out.println(user);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<User> addUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.addUser(user), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping(path = "/api/v1/user/{id}")
+    public ResponseEntity<User> deleteUserById(@PathVariable Long id) {
+        userService.deleteUserById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

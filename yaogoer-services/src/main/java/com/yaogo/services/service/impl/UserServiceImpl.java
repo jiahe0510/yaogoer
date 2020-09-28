@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
     public User addUser(User user) {
         return userRepo.save(user);
     }
+
+    @Override
+    public void deleteUserById(Long id){
+        userRepo.deleteById(id);
+    }
 }
