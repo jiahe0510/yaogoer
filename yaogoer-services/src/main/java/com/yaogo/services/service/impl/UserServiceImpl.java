@@ -23,7 +23,13 @@ public class UserServiceImpl implements UserService {
         return user.orElseGet(User::new);
     }
 
+    @Override
     public List<User> getAll(){
         return userRepo.findAll();
+    }
+
+    @Override
+    public User addUser(User user) {
+        return userRepo.save(user);
     }
 }
