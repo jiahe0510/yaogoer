@@ -3,9 +3,12 @@ package com.yaogo.config.security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yaogo.model.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 public class UserPrincipal implements UserDetails {
 
@@ -14,25 +17,37 @@ public class UserPrincipal implements UserDetails {
     private String username;
 
     @JsonIgnore
+    private String email;
+
+    @JsonIgnore
     private String password;
 
-    public UserPrincipal(Long id, String username, String password) {
+    private Collection<? extends GrantedAuthority> authorities;
+
+    public UserPrincipal(Long id, String username, String password, String email, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.email = email;
+        this.authorities = authorities;
     }
 
     public static UserPrincipal create(User user) {
+        List<GrantedAuthority> authorities = new LinkedList<>();
+
         return new UserPrincipal(
                 user.getId(),
-                user.getUserName(),
-                user.getUserPassword()
+                user.getUsername(),
+                user.getPassword(),
+                user.getEmail(),
+                authorities
         );
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+
+        return authorities;
     }
 
     @Override
@@ -69,15 +84,8 @@ public class UserPrincipal implements UserDetails {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

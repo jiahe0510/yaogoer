@@ -6,5 +6,4 @@ import java.util.Optional;
 
 public interface UserCustomRepo {
 
-    Optional<User> findByUsername(String username);
 }

@@ -1,37 +1,46 @@
 package com.yaogo.controllers;
 
+import com.yaogo.config.security.JwtTokenProvider;
 import com.yaogo.model.User;
 import com.yaogo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
-@RequestMapping(path = {"/api/v1", ""})
+@RequestMapping(path = {"/api/v1/auth"})
 @CrossOrigin("*")
 public class LoginController {
 
     @Autowired
-    AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserService userServiceImpl;
+    private UserService userService;
+
+    @Autowired
+    private JwtTokenProvider tokenProvider;
 
     @PostMapping(path = "/login", produces = "application/json")
-    public ResponseEntity<User> login(@RequestBody User user) {
+    public ResponseEntity<?> authenticateUser(@RequestBody User user) {
 
-        Long id = user.getId();
-        String password = user.getUserPassword();
-        User actualUser = userServiceImpl.getUserById(id);
-        String actualPassword = actualUser.getUserPassword();
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        user.getUsername(),
+                        user.getPassword()
+                )
+        );
 
-        if (password.equals(actualPassword)) {
-            return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
-        }
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        String jwt = tokenProvider.generate(authentication);
+
+        return ResponseEntity.ok(jwt);
 
     }
 

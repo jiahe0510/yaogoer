@@ -12,22 +12,30 @@ public class User {
     private Long id;
 
     @Column(name="user_name")
-    private String userName;
+    private String username;
 
     @Column(name="user_password")
-    private String userPassword;
+    private String password;
+
+    @Column(name="user_role")
+    private Integer role;
+
+    @Column(name="user_email")
+    private String email;
 
     public User() {}
 
-    public User(Long id, String userName, String userPassword) {
+    public User(Long id, String username, String password, Integer role, String email) {
         this.id = id;
-        this.userName = userName;
-        this.userPassword = userPassword;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.email = email;
     }
 
-    public User(String userName, String userPassword) {
-        this.userName = userName;
-        this.userPassword = userPassword;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
@@ -38,20 +46,35 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String userPassword) {
+        this.password = userPassword;
     }
 
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
