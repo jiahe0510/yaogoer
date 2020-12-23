@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserPrincipal implements UserDetails {
 
@@ -34,6 +35,7 @@ public class UserPrincipal implements UserDetails {
 
     public static UserPrincipal create(User user) {
         List<GrantedAuthority> authorities = new LinkedList<>();
+        authorities.add(new SimpleGrantedAuthority("USER"));
 
         return new UserPrincipal(
                 user.getId(),
@@ -88,4 +90,16 @@ public class UserPrincipal implements UserDetails {
         return email;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        UserPrincipal that = (UserPrincipal) obj;
+        return Objects.equals(id, that.id) & Objects.equals(username, that.getUsername());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
